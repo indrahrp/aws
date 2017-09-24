@@ -6,7 +6,7 @@ iam = boto3.client('iam')
 
 # Create user
 response = iam.create_user(
-    UserName='IAM_USER_NAME'
+    UserName='indrah'
 )
 
 print(response)
