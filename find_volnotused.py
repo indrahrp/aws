@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 region = "us-east-1"  
 cloudwatch = boto3.client("cloudwatch", region_name=region)  
 today = datetime.now() + timedelta(days=1) # today + 1 because we want all of today  
-two_weeks = timedelta(days=14)  
+two_weeks = timedelta(days=2)  
 start_date = today - two_weeks
 myaccountid='826606229734'
 
@@ -97,4 +97,4 @@ for snapshot in ec2.snapshots.filter(OwnerIds=[myaccountid]):
 	print "snapshot name ami " + r.groups()[0]
         if r.groups()[0] not in images:
             print r.groups()[0]
-            #snapshot.delete()
+            snapshot.delete()
